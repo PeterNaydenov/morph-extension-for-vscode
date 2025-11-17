@@ -1,0 +1,61 @@
+{
+  "name": "@peter.naydenov/morph-syntax-highlighting",
+  "displayName": "Morph Syntax Highlighting",
+  "description": "Syntax highlighting for .morph template files with placeholder detection and section highlighting",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:morph"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "morph",
+        "aliases": [
+          "Morph",
+          "morph"
+        ],
+        "extensions": [
+          ".morph"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "morph",
+        "scopeName": "source.morph",
+        "path": "./syntaxes/morph.tmLanguage.json",
+        "injectTo": [
+          "text.html.basic"
+        ]
+      }
+    ],
+    "commands": [
+      {
+        "command": "morph.helloWorld",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/git-morph-extension-for-vscode.git"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.75.0",
+    "@types/node": "^24.10.1",
+    "typescript": "^5.9.3"
+  }
+}

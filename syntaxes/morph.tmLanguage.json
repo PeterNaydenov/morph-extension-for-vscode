@@ -1,0 +1,162 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Morph",
+  "scopeName": "source.morph",
+  "patterns": [
+    {
+      "include": "#template-section"
+    },
+    {
+      "include": "#script-section"
+    },
+    {
+      "include": "#style-section"
+    },
+    {
+      "include": "#handshake-section"
+    }
+  ],
+  "repository": {
+    "template-section": {
+      "name": "text.html.morph",
+      "begin": "(^[ \\t]*)?(?=(<(?!(script|style|script\\s+type=\"application/json\"))[^>]*>))",
+      "end": "(?=\\s*<(script|style|script\\s+type=\"application/json\")[^>]*>)",
+      "patterns": [
+        {
+          "include": "text.html.basic"
+        },
+        {
+          "include": "#morph-placeholders"
+        }
+      ]
+    },
+    "script-section": {
+      "name": "source.js.morph",
+      "begin": "(^[ \\t]*)?<script(?![^>]*type=[\"']application/json[\"'])",
+      "end": "</script>",
+      "beginCaptures": {
+        "0": { "name": "punctuation.definition.tag.html" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.tag.html" }
+      },
+      "patterns": [
+        {
+          "include": "source.js"
+        },
+        {
+          "include": "#morph-function-declarations"
+        }
+      ]
+    },
+    "style-section": {
+      "name": "source.css.morph",
+      "begin": "(^[ \\t]*)?<style>",
+      "end": "</style>",
+      "beginCaptures": {
+        "0": { "name": "punctuation.definition.tag.html" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.tag.html" }
+      },
+      "patterns": [
+        {
+          "include": "source.css"
+        }
+      ]
+    },
+    "handshake-section": {
+      "name": "source.json.morph",
+      "begin": "(^[ \\t]*)?<script\\s+type=[\"']application/json[\"']>",
+      "end": "</script>",
+      "beginCaptures": {
+        "0": { "name": "punctuation.definition.tag.html" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.tag.html" }
+      },
+      "patterns": [
+        {
+          "include": "source.json"
+        }
+      ]
+    },
+    "morph-placeholders": {
+      "patterns": [
+        {
+          "name": "meta.placeholder.morph",
+          "match": "\\{\\{\\s*([^}]+?)\\s*\\}\\}",
+          "captures": {
+            "0": { "name": "punctuation.definition.placeholder.morph" },
+            "1": {
+              "patterns": [
+                {
+                  "include": "#placeholder-content"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "placeholder-content": {
+      "patterns": [
+        {
+          "name": "variable.other.placeholder.morph",
+          "match": "([a-zA-Z_][a-zA-Z0-9_]*)",
+          "captures": {
+            "1": { "name": "variable.other.placeholder.morph" }
+          }
+        },
+        {
+          "name": "keyword.control.placeholder.morph",
+          "match": "(@all|@root)",
+          "captures": {
+            "1": { "name": "keyword.control.placeholder.morph" }
+          }
+        },
+        {
+          "name": "entity.name.function.placeholder.morph",
+          "match": "([a-zA-Z_][a-zA-Z0-9_]*)",
+          "captures": {
+            "1": { "name": "entity.name.function.placeholder.morph" }
+          }
+        },
+        {
+          "name": "keyword.operator.placeholder.morph",
+          "match": "([>\\[\\]\\^\\?\\+])",
+          "captures": {
+            "1": { "name": "keyword.operator.placeholder.morph" }
+          }
+        },
+        {
+          "name": "punctuation.separator.placeholder.morph",
+          "match": "([,:])",
+          "captures": {
+            "1": { "name": "punctuation.separator.placeholder.morph" }
+          }
+        }
+      ]
+    },
+    "morph-function-declarations": {
+      "patterns": [
+        {
+          "name": "meta.function.declaration.morph",
+          "match": "\\b(function)\\s+([a-zA-Z_][a-zA-Z0-9_]*)",
+          "captures": {
+            "1": { "name": "storage.type.function.morph" },
+            "2": { "name": "entity.name.function.morph" }
+          }
+        },
+        {
+          "name": "meta.variable.declaration.morph",
+          "match": "\\b(const|let|var)\\s+([a-zA-Z_][a-zA-Z0-9_]*)",
+          "captures": {
+            "1": { "name": "storage.type.morph" },
+            "2": { "name": "variable.other.constant.morph" }
+          }
+        }
+      ]
+    }
+  }
+}

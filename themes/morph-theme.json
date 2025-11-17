@@ -1,0 +1,91 @@
+{
+  "name": "Morph Theme",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#1e1e1e",
+    "editor.foreground": "#d4d4d4"
+  },
+  "tokenColors": [
+    {
+      "name": "Morph Placeholders",
+      "scope": [
+        "meta.placeholder.morph",
+        "punctuation.definition.placeholder.morph"
+      ],
+      "settings": {
+        "foreground": "#569cd6",
+        "background": "#2a2a2a",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Placeholder Variables",
+      "scope": "variable.other.placeholder.morph",
+      "settings": {
+        "foreground": "#9cdcfe",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Placeholder Functions",
+      "scope": "entity.name.function.placeholder.morph",
+      "settings": {
+        "foreground": "#dcdcaa",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Placeholder Operators",
+      "scope": "keyword.operator.placeholder.morph",
+      "settings": {
+        "foreground": "#c586c0",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Placeholder Control Keywords",
+      "scope": "keyword.control.placeholder.morph",
+      "settings": {
+        "foreground": "#c586c0",
+        "fontStyle": "bold italic"
+      }
+    },
+    {
+      "name": "Morph Function Declarations",
+      "scope": ["entity.name.function.morph", "storage.type.function.morph"],
+      "settings": {
+        "foreground": "#dcdcaa",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Morph Variable Declarations",
+      "scope": ["variable.other.constant.morph", "storage.type.morph"],
+      "settings": {
+        "foreground": "#4fc1ff",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Script Section Background",
+      "scope": "source.js.morph",
+      "settings": {
+        "background": "#1a1a1a"
+      }
+    },
+    {
+      "name": "Style Section Background",
+      "scope": "source.css.morph",
+      "settings": {
+        "background": "#1f1f1f"
+      }
+    },
+    {
+      "name": "Handshake Section Background",
+      "scope": "source.json.morph",
+      "settings": {
+        "background": "#1d1d1d"
+      }
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+<!-- Test morph file for syntax highlighting -->
+<div class="container {{variant}}">
+  <h1>{{title : formatTitle, uppercase}}</h1>
+  <p>{{description}}</p>
+  
+  <!-- Complex placeholder with operators -->
+  {{@all : >setupData, ^^}}
+  {{items : [], li, a : itemList}}
+  
+  <!-- Special keywords -->
+  {{@root : >getRootData}}
+  {{data : ?conditionalRender : result}}
+</div>
+
+<script>
+// Function declarations should be highlighted
+function formatTitle(title) {
+  return title.toUpperCase();
+}
+
+function setupData({ data }) {
+  return data;
+}
+
+// Variable declarations should be highlighted
+const helper = `<span>{{text}}</span>`;
+let cache = {};
+
+// Arrow functions
+const uppercase = (text) => text.toUpperCase();
+</script>
+
+<style>
+/* CSS section with different background */
+.container {
+  background: var(--container-bg, #fff);
+  padding: 1rem;
+}
+
+.{{variant}} {
+  color: var(--text-color, #333);
+}
+</style>
+
+<script type="application/json">
+{
+  "title": "Hello World",
+  "description": "This is a test morph file",
+  "variant": "primary",
+  "items": [
+    {"text": "Item 1"},
+    {"text": "Item 2"}
+  ]
+}
+</script>
