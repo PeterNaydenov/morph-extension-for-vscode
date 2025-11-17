@@ -1,8 +1,8 @@
 {
-  "name": "@peter.naydenov/morph-syntax-highlighting",
+  "name": "morph-syntax-highlighting",
   "displayName": "Morph Syntax Highlighting",
   "description": "Syntax highlighting for .morph template files with placeholder detection and section highlighting",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.75.0"
   },
