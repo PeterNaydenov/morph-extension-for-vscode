@@ -1,10 +1,11 @@
 {
-  "name": "morph-syntax-highlighting",
-  "displayName": "Morph Syntax Highlighting",
+  "name": "morph-template-syntax-highlighting",
+  "displayName": "Morph Template Syntax Highlighting",
   "description": "Syntax highlighting for .morph template files with placeholder detection and section highlighting",
   "version": "0.0.2",
+  "publisher": "peternaydenov",
   "engines": {
-    "vscode": "^1.85.0"
+    "vscode": "^1.106.1"
   },
   "categories": [
     "Programming Languages"
@@ -56,9 +57,10 @@
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"
   },
+  "icon": "morph.syntax.highlight.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/git-morph-extension-for-vscode.git"
+    "url": "https://github.com/PeterNaydenov/morph-extension-for-vscode.git"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.10",
