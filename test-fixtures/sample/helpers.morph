@@ -1,0 +1,56 @@
+<!-- Template Section -->
+<div class="container">
+  <h1>{{::title}}</h1>
+  <p>{{formatDate::date}}</p>
+  <button>{{::submit}}</button>
+</div>
+
+<script>
+// Helper Functions Section with various function and variable types
+function formatDate(date) {
+  return new Date(date).toLocaleDateString();
+}
+
+function calculateTotal(items) {
+  return items.reduce((sum, item) => sum + item.price, 0);
+}
+
+const API_CONFIG = {
+  baseUrl: 'https://api.example.com',
+  timeout: 5000
+};
+
+let userSession = null;
+
+var globalVar = 'legacy';
+
+class UserService {
+  constructor() {
+    this.users = [];
+  }
+  
+  addUser(user) {
+    this.users.push(user);
+  }
+}
+
+// Arrow function
+const validateEmail = (email) => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+};
+</script>
+
+<script type="application/json">
+// Handshake Section
+{
+  "name": "helper-test",
+  "version": "1.0.0"
+}
+</script>
+
+<style>
+/* Style Section */
+.container {
+  max-width: 1200px;
+}
+</style>

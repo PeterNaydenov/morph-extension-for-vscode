@@ -1,0 +1,66 @@
+{
+  "contributes": {
+    "languages": [
+      {
+        "id": "morph",
+        "aliases": [
+          "Morph",
+          "morph"
+        ],
+        "extensions": [
+          ".morph"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "morph",
+        "scopeName": "source.morph",
+        "path": "./syntaxes/morph.tmLanguage.json"
+      }
+    ],
+    "themes": [
+      {
+        "label": "Morph Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/morph-theme.json"
+      }
+    ]
+  },
+  "activationEvents": [
+    "onLanguage:morph"
+  ],
+  "main": "./out/extension.js",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "morph",
+    "syntax",
+    "highlighting",
+    "vite-plugin-morph"
+  ],
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "mocha": "^10.2.0",
+    "typescript": "^5.3.3",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.9",
+    "vscode-tmgrammar-test": "^0.1.1"
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "test-grammar": "vscode-tmgrammar-test -s source.morph -g syntaxes/morph.tmLanguage.json -t test/**/*.morph"
+  }
+}

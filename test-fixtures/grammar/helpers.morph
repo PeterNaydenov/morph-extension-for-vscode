@@ -1,0 +1,22 @@
+<!-- SYNTAX TEST "morph" ("Helper function highlighting") -->
+<script>
+function formatDate(date) {
+  return new Date(date).toLocaleDateString();
+}
+
+const config = {
+  theme: 'dark'
+};
+
+let userSession = null;
+
+var globalVar = 'legacy';
+
+class UserService {
+  constructor() {
+    this.users = [];
+  }
+}
+
+const arrow = (param) => param;
+</script>

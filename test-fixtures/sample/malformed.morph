@@ -1,0 +1,40 @@
+<!-- Template Section with malformed content -->
+<div class="container">
+  <h1>{{::title}}</h1>
+  <p>{{content::}}</p>
+  <div>{{unclosed_placeholder}}</div>
+  <p>{{:invalid:format}}</p>
+  <span>{{}}</span>
+</div>
+
+<script>
+// Helper Functions Section with mixed content
+function formatDate(date) {
+  return new Date(date).toLocaleDateString();
+}
+
+const config = {
+  theme: 'dark'
+  // missing closing brace
+</script>
+
+<script type="application/json">
+// Handshake Section with malformed JSON
+{
+  "name": "malformed-test",
+  "version": "1.0.0",
+  // missing closing brace
+</script>
+
+<style>
+/* Style Section with invalid CSS */
+.container {
+  max-width: 1200px
+  /* missing semicolon */
+}
+
+h1 {
+  color: #333;
+  font-size: 2rem
+  /* missing semicolon */
+</style>

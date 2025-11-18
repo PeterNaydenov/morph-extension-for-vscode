@@ -10,7 +10,7 @@ export function activate(context: vscode.ExtensionContext): void {
   });
 
   // Register commands for testing
-  let disposable = vscode.commands.registerCommand('morph.helloWorld', () => {
+  const disposable = vscode.commands.registerCommand('morph.helloWorld', () => {
     vscode.window.showInformationMessage(
       'Hello from Morph Syntax Highlighting!'
     );
