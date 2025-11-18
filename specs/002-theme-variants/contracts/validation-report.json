@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Theme Validation Report",
+  "description": "Schema for theme validation results",
+  "type": "object",
+  "required": ["themeName", "timestamp", "overallValid", "contrastResults"],
+  "properties": {
+    "themeName": {
+      "type": "string",
+      "description": "Name of the validated theme"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Validation timestamp"
+    },
+    "overallValid": {
+      "type": "boolean",
+      "description": "Overall validation result"
+    },
+    "contrastResults": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["foreground", "background", "ratio", "passesAA", "passesAAA", "element"],
+        "properties": {
+          "foreground": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$",
+            "description": "Foreground color"
+          },
+          "background": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$",
+            "description": "Background color"
+          },
+          "ratio": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 21,
+            "description": "Contrast ratio"
+          },
+          "passesAA": {
+            "type": "boolean",
+            "description": "WCAG AA compliance (4.5:1)"
+          },
+          "passesAAA": {
+            "type": "boolean",
+            "description": "WCAG AAA compliance (7:1)"
+          },
+          "element": {
+            "type": "string",
+            "description": "UI element name"
+          }
+        }
+      }
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["severity", "element", "description"],
+        "properties": {
+          "severity": {
+            "type": "string",
+            "enum": ["error", "warning"],
+            "description": "Issue severity"
+          },
+          "element": {
+            "type": "string",
+            "description": "UI element with issue"
+          },
+          "description": {
+            "type": "string",
+            "description": "Issue description"
+          },
+          "suggestion": {
+            "type": "string",
+            "description": "Suggested fix"
+          }
+        }
+      }
+    },
+    "performance": {
+      "type": "object",
+      "properties": {
+        "loadTime": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Theme load time in milliseconds"
+        },
+        "fileSize": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Theme file size in bytes"
+        },
+        "memoryUsage": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Memory usage in bytes"
+        }
+      }
+    }
+  }
+}

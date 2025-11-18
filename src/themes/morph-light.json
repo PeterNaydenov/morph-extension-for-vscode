@@ -1,36 +1,30 @@
 {
-  "name": "Morph Syntax Highlighting",
-  "type": "dark",
+  "name": "Morph Light",
+  "type": "light",
   "colors": {
-    "editor.background": "#1e1e1e",
-    "editor.foreground": "#d4d4d4"
+    "editor.background": "#ffffff",
+    "editor.foreground": "#333333"
   },
   "tokenColors": [
     {
       "name": "Comments",
-      "scope": [
-        "comment",
-        "punctuation.definition.comment"
-      ],
+      "scope": ["comment", "punctuation.definition.comment"],
       "settings": {
-        "foreground": "#6A9955"
+        "foreground": "#008000"
       }
     },
     {
       "name": "Variables",
-      "scope": [
-        "variable",
-        "string constant.other.placeholder"
-      ],
+      "scope": ["variable", "string constant.other.placeholder"],
       "settings": {
-        "foreground": "#9CDCFE"
+        "foreground": "#001080"
       }
     },
     {
       "name": "Placeholder Data",
       "scope": "variable.other.data.morph",
       "settings": {
-        "foreground": "#4EC9B0",
+        "foreground": "#0066CC",
         "fontStyle": "bold"
       }
     },
@@ -38,7 +32,7 @@
       "name": "Placeholder Action",
       "scope": "variable.other.action.morph",
       "settings": {
-        "foreground": "#C586C0",
+        "foreground": "#9900CC",
         "fontStyle": "italic"
       }
     },
@@ -46,7 +40,7 @@
       "name": "Placeholder Name",
       "scope": "variable.other.name.morph",
       "settings": {
-        "foreground": "#DCDCAA",
+        "foreground": "#008800",
         "fontStyle": "underline"
       }
     },
@@ -54,7 +48,7 @@
       "name": "Placeholder Separators",
       "scope": "punctuation.separator.placeholder.morph",
       "settings": {
-        "foreground": "#FFD700",
+        "foreground": "#996600",
         "fontStyle": "bold"
       }
     },
@@ -65,28 +59,22 @@
         "meta.placeholder.morph punctuation.definition.placeholder.end"
       ],
       "settings": {
-        "foreground": "#FF6B6B",
+        "foreground": "#CC0000",
         "fontStyle": "bold"
       }
     },
     {
       "name": "JavaScript Functions",
-      "scope": [
-        "entity.name.function.js",
-        "support.function"
-      ],
+      "scope": ["entity.name.function.js", "support.function"],
       "settings": {
-        "foreground": "#DCDCAA"
+        "foreground": "#795E26"
       }
     },
     {
       "name": "JavaScript Variables",
-      "scope": [
-        "variable.other.readwrite.js",
-        "variable.other.object.js"
-      ],
+      "scope": ["variable.other.readwrite.js", "variable.other.object.js"],
       "settings": {
-        "foreground": "#9CDCFE"
+        "foreground": "#001080"
       }
     },
     {
@@ -97,7 +85,7 @@
         "entity.other.attribute-name.id.css"
       ],
       "settings": {
-        "foreground": "#D7BA7D"
+        "foreground": "#800000"
       }
     },
     {
@@ -107,35 +95,28 @@
         "support.constant.property-value.css"
       ],
       "settings": {
-        "foreground": "#9CDCFE"
+        "foreground": "#001080"
       }
     },
     {
       "name": "JSON Keys",
-      "scope": [
-        "support.type.property-name.json"
-      ],
+      "scope": ["support.type.property-name.json"],
       "settings": {
-        "foreground": "#9CDCFE"
+        "foreground": "#001080"
       }
     },
     {
       "name": "JSON Values",
-      "scope": [
-        "support.constant.json"
-      ],
+      "scope": ["support.constant.json"],
       "settings": {
-        "foreground": "#CE9178"
+        "foreground": "#A31515"
       }
     },
     {
       "name": "HTML Tags",
-      "scope": [
-        "entity.name.tag.html",
-        "entity.name.tag.xml"
-      ],
+      "scope": ["entity.name.tag.html", "entity.name.tag.xml"],
       "settings": {
-        "foreground": "#569CD6"
+        "foreground": "#0000FF"
       }
     },
     {
@@ -145,7 +126,7 @@
         "entity.other.attribute-name.xml"
       ],
       "settings": {
-        "foreground": "#92C5F8"
+        "foreground": "#0451A5"
       }
     }
   ]

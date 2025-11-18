@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "VS Code Theme Configuration",
+  "description": "Configuration schema for Morph theme variants",
+  "type": "object",
+  "properties": {
+    "contributes": {
+      "type": "object",
+      "properties": {
+        "themes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "uiTheme", "path"],
+            "properties": {
+              "label": {
+                "type": "string",
+                "description": "Display name of the theme",
+                "examples": ["Morph Light", "Morph Dark"]
+              },
+              "uiTheme": {
+                "type": "string",
+                "enum": ["vs", "vs-dark", "hc-black", "hc-light"],
+                "description": "VS Code UI theme type"
+              },
+              "type": {
+                "type": "string",
+                "enum": ["light", "dark"],
+                "description": "Theme type for automatic switching"
+              },
+              "path": {
+                "type": "string",
+                "pattern": "^\\.\\/.*\\.json$",
+                "description": "Relative path to theme file"
+              }
+            }
+          },
+          "minItems": 1,
+          "maxItems": 4
+        }
+      },
+      "required": ["themes"]
+    }
+  },
+  "required": ["contributes"]
+}
