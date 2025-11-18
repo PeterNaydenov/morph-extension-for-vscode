@@ -1,0 +1,7 @@
+<!-- SYNTAX TEST "morph" ("Placeholder highlighting") -->
+<div>
+  <p>{{data::}}</p>
+  <span>{{::action}}</span>
+  <h1>{{::name}}</h1>
+  <div>{{user:name:email}}</div>
+</div>

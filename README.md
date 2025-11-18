@@ -1,42 +1,43 @@
-# Morph Syntax Highlighting Extension
+# Morph Syntax Highlighting
 
-A VS Code extension that provides syntax highlighting for `.morph` template files with special emphasis on:
-
-- **Placeholders** - `{{variable}}` syntax with distinct colors
-- **Sections** - Different backgrounds for script, style, and handshake sections
-- **Functions** - Highlighted function and constant names
-- **Operators** - Special morph operators (`>`, `[]`, `^`, `?`, `+`)
+A VS Code extension that provides syntax highlighting for .morph files used by @peter.naydenov/vite-plugin-morph.
 
 ## Features
 
-### Placeholder Highlighting
+- **Section Recognition**: Automatically detects and highlights four main sections:
+  - Template content (HTML-like)
+  - Helper functions (JavaScript)
+  - Handshake data (JSON)
+  - Styles (CSS)
 
-- `{{variable}}` - Blue background with bold text
-- `{{variable : helper1, helper2}}` - Different colors for variables vs helpers
-- `{{@all}}` and `{{@root}}` - Special control keywords
-- Morph operators (`>`, `[]`, `^`, `?`, `+`) - Purple and bold
+- **Placeholder Highlighting**: Different colors for placeholder components:
+  - Data sections: Teal, bold
+  - Action sections: Purple, italic
+  - Name sections: Yellow, underline
+  - Colon separators: Gold, bold
+  - Braces: Red, bold
 
-### Section Differentiation
-
-- **Template section** - Standard HTML highlighting
-- **Script section** - Darker background with JavaScript highlighting
-- **Style section** - Medium-dark background with CSS highlighting
-- **Handshake section** - Darkest background with JSON highlighting
-
-### Function/Variable Highlighting
-
-- `function myFunc()` - Bold orange highlighting
-- `const myVar` - Bold blue highlighting
-- Enhanced visibility for declarations
+- **Helper Function Visibility**: Clear highlighting for:
+  - Function declarations
+  - Variable declarations (var/let/const)
+  - Class declarations
+  - Arrow functions
 
 ## Installation
+
+### From VS Code Marketplace
+
+1. Open VS Code
+2. Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (macOS)
+3. Search for "Morph Syntax Highlighting"
+4. Click "Install"
 
 ### Development Installation
 
 1. Clone this repository
-2. Navigate to the extension directory:
+2. Navigate to extension directory:
    ```bash
-   cd vscode-morph-extension
+   cd git-morph-extension-for-vscode
    ```
 3. Install dependencies:
    ```bash
@@ -46,45 +47,82 @@ A VS Code extension that provides syntax highlighting for `.morph` template file
    ```bash
    npm run compile
    ```
-5. Open VS Code and press `F5` to launch a new Extension Development Host window
-6. Open a `.morph` file to test the syntax highlighting
+5. Open VS Code and press `F5` to launch Extension Development Host
+6. Open a `.morph` file to test syntax highlighting
 
-### Production Installation
+### From VSIX File
 
-1. Package the extension:
-   ```bash
-   npm install -g vsce
-   vsce package
-   ```
-2. Install the `.vsix` file in VS Code:
+1. Download the latest `.vsix` file from releases
+2. Install via command line:
    ```bash
    code --install-extension morph-syntax-highlighting-*.vsix
    ```
 
 ## Usage
 
-Once installed, `.morph` files will automatically get syntax highlighting. The extension recognizes:
+Create or open a `.morph` file and the extension will automatically apply syntax highlighting.
 
-- Morph placeholders: `{{variable}}`, `{{variable : helper}}`, `{{@all}}`
-- Script sections: `<script>...</script>`
-- Style sections: `<style>...</style>`
-- Handshake sections: `<script type="application/json">...</script>`
-- Function declarations: `function name()`
-- Variable declarations: `const name`, `let name`, `var name`
+### Placeholder Syntax
+
+Placeholders use three-section format: `{data:action:name}`
+
+- `{::name}` - Named placeholder
+- `{data::}` - Data-only placeholder  
+- `{::action}` - Action-only placeholder
+- `{data:action:name}` - Complete placeholder
+
+### Section Structure
+
+```morph
+<!-- Template Section (HTML-like with placeholders) -->
+<div class="container">
+  <h1>{{::title}}</h1>
+  <p>{{content::}}</p>
+</div>
+
+<script>
+// Helper Functions Section (JavaScript)
+function formatDate(date) {
+  return new Date(date).toLocaleDateString();
+}
+
+const config = {
+  theme: 'dark'
+};
+</script>
+
+<script type="application/json">
+// Handshake Section (JSON)
+{
+  "name": "my-component",
+  "version": "1.0.0"
+}
+</script>
+
+<style>
+/* Style Section (CSS) */
+.container {
+  max-width: 1200px;
+}
+
+h1 {
+  color: #333;
+}
+</style>
+```
 
 ## Customization
 
-You can customize the colors by adding this to your VS Code `settings.json`:
+You can customize colors in your VS Code `settings.json`:
 
 ```json
 {
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
-        "scope": "meta.placeholder.morph",
+        "scope": "variable.other.data.morph",
         "settings": {
-          "foreground": "#your-color",
-          "background": "#your-bg-color"
+          "foreground": "#00ff00"
         }
       }
     ]
@@ -94,25 +132,33 @@ You can customize the colors by adding this to your VS Code `settings.json`:
 
 ## Development
 
-The extension is built with:
+```bash
+npm install
+npm run compile
+npm test
+```
 
-- **TypeScript** for the extension logic
-- **TextMate Grammar** for syntax highlighting
-- **JSON Theme** for color customization
+### Key Files
 
-Key files:
-
-- `syntaxes/morph.tmLanguage.json` - Main syntax grammar
-- `themes/morph-theme.json` - Color theme definitions
+- `src/syntaxes/morph.tmLanguage.json` - TextMate grammar
+- `src/themes/morph-theme.json` - Color theme
 - `src/extension.ts` - Extension entry point
+- `package.json` - Extension manifest
+
+## Performance
+
+- Targets 16ms response time for 100KB files
+- Memory usage under 10MB
+- WCAG AA compliant color schemes (4.5:1 contrast)
 
 ## Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Test with `F5` in VS Code
-5. Submit a pull request
+4. Add tests for new features
+5. Ensure all tests pass: `npm test`
+6. Submit a pull request
 
 ## License
 

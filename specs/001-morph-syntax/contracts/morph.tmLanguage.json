@@ -1,0 +1,111 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Morph",
+  "scopeName": "source.morph",
+  "patterns": [
+    {
+      "include": "#script-handshake-section"
+    },
+    {
+      "include": "#script-helpers-section"
+    },
+    {
+      "include": "#style-section"
+    },
+    {
+      "include": "#template-section"
+    }
+  ],
+  "repository": {
+    "script-handshake-section": {
+      "name": "source.json.embedded.morph",
+      "begin": "<script\\s+type=[\"']application\\/json[\"']\\s*>",
+      "end": "</script>",
+      "patterns": [
+        {
+          "include": "source.json"
+        }
+      ]
+    },
+    "script-helpers-section": {
+      "name": "source.js.embedded.morph",
+      "begin": "<script(?![^>]*\\s+type)[^>]*>",
+      "end": "</script>",
+      "patterns": [
+        {
+          "include": "source.js"
+        }
+      ]
+    },
+    "style-section": {
+      "name": "source.css.embedded.morph",
+      "begin": "<style[^>]*>",
+      "end": "</style>",
+      "patterns": [
+        {
+          "include": "source.css"
+        }
+      ]
+    },
+    "template-section": {
+      "name": "text.html.morph",
+      "patterns": [
+        {
+          "include": "#placeholder"
+        },
+        {
+          "include": "text.html.basic"
+        }
+      ]
+    },
+    "placeholder": {
+      "name": "meta.placeholder.morph",
+      "begin": "\\{\\{",
+      "end": "\\}\\}",
+      "patterns": [
+        {
+          "include": "#placeholder-content"
+        }
+      ]
+    },
+    "placeholder-content": {
+      "patterns": [
+        {
+          "name": "variable.placeholder.data.morph",
+          "match": "([^:]*)(?=:)",
+          "captures": {
+            "1": {
+              "name": "variable.other.data.morph"
+            }
+          }
+        },
+        {
+          "name": "punctuation.separator.placeholder.morph",
+          "match": ":"
+        },
+        {
+          "name": "variable.placeholder.action.morph",
+          "match": "([^:]*)(?=:)",
+          "captures": {
+            "1": {
+              "name": "variable.other.action.morph"
+            }
+          }
+        },
+        {
+          "name": "punctuation.separator.placeholder.morph",
+          "match": ":"
+        },
+        {
+          "name": "variable.placeholder.name.morph",
+          "match": "([^}]*)",
+          "captures": {
+            "1": {
+              "name": "variable.other.name.morph"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

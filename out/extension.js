@@ -11,7 +11,7 @@ function activate(context) {
         console.log('Morph language registered:', morphLanguage);
     });
     // Register commands for testing
-    let disposable = vscode.commands.registerCommand('morph.helloWorld', () => {
+    const disposable = vscode.commands.registerCommand('morph.helloWorld', () => {
         vscode.window.showInformationMessage('Hello from Morph Syntax Highlighting!');
     });
     context.subscriptions.push(disposable);
