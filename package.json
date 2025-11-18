@@ -1,8 +1,8 @@
 {
   "name": "morph-template-syntax-highlighting",
   "displayName": "Morph Template Syntax Highlighting",
-  "description": "Syntax highlighting for .morph template files with placeholder detection and section highlighting",
-  "version": "0.0.4",
+  "description": "Syntax highlighting for .morph template files with light/dark theme variants, placeholder detection and section highlighting",
+  "version": "0.0.5",
   "publisher": "peternaydenov",
   "engines": {
     "vscode": "^1.106.1"
@@ -36,9 +36,16 @@
     ],
     "themes": [
       {
+        "label": "Morph Light",
+        "uiTheme": "vs",
+        "type": "light",
+        "path": "./src/themes/morph-light.json"
+      },
+      {
         "label": "Morph Dark",
         "uiTheme": "vs-dark",
-        "path": "./src/themes/morph-theme.json"
+        "type": "dark",
+        "path": "./src/themes/morph-dark.json"
       }
     ],
     "commands": [
@@ -55,7 +62,10 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "test:contrast": "node scripts/check-contrast.js",
+    "test:accessibility": "lhci autorun --config=.lighthouserc.js",
+    "validate:theme": "npm run test:contrast"
   },
   "icon": "morph.syntax.highlight.png",
   "repository": {
@@ -63,6 +73,7 @@
     "url": "https://github.com/PeterNaydenov/morph-extension-for-vscode.git"
   },
   "devDependencies": {
+    "@lhci/cli": "^0.15.1",
     "@types/mocha": "^10.0.10",
     "@types/node": "^24.10.1",
     "@types/vscode": "^1.106.1",
@@ -71,6 +82,8 @@
     "@vscode/test-cli": "^0.0.12",
     "@vscode/test-electron": "^2.5.2",
     "@vscode/vsce": "^3.7.0",
+    "color-contrast-checker": "^2.1.0",
+    "contrast-ratio": "^1.1.0",
     "eslint": "^9.39.1",
     "mocha": "^11.7.5",
     "prettier": "^3.6.2",

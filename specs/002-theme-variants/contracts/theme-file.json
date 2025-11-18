@@ -1,0 +1,111 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "VS Code Theme File",
+  "description": "Schema for VS Code theme JSON files",
+  "type": "object",
+  "required": ["name", "type", "colors"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Theme name",
+      "examples": ["Morph Light", "Morph Dark"]
+    },
+    "type": {
+      "type": "string",
+      "enum": ["light", "dark"],
+      "description": "Theme type for automatic switching"
+    },
+    "colors": {
+      "type": "object",
+      "description": "Workbench color definitions",
+      "patternProperties": {
+        "^[a-zA-Z]+\\.[a-zA-Z]+$": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "description": "Hex color code"
+        }
+      },
+      "required": ["editor.background", "editor.foreground"]
+    },
+    "tokenColors": {
+      "type": "array",
+      "description": "Syntax highlighting token colors",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Human-readable name for the token rule"
+          },
+          "scope": {
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "TextMate scope selector"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Array of TextMate scope selectors"
+              }
+            ]
+          },
+          "settings": {
+            "type": "object",
+            "properties": {
+              "foreground": {
+                "type": "string",
+                "pattern": "^#[0-9a-fA-F]{6}$",
+                "description": "Text color in hex format"
+              },
+              "background": {
+                "type": "string",
+                "pattern": "^#[0-9a-fA-F]{6}$",
+                "description": "Background color in hex format"
+              },
+              "fontStyle": {
+                "type": "string",
+                "pattern": "^(bold|italic|underline)(\\s+(bold|italic|underline))*$",
+                "description": "Font style combination"
+              }
+            }
+          }
+        },
+        "required": ["settings"]
+      }
+    },
+    "semanticTokenColors": {
+      "type": "object",
+      "description": "Semantic token color definitions",
+      "patternProperties": {
+        "^[a-zA-Z]+$": {
+          "oneOf": [
+            {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "foreground": {
+                  "type": "string",
+                  "pattern": "^#[0-9a-fA-F]{6}$"
+                },
+                "background": {
+                  "type": "string",
+                  "pattern": "^#[0-9a-fA-F]{6}$"
+                },
+                "fontStyle": {
+                  "type": "string",
+                  "pattern": "^(bold|italic|underline)(\\s+(bold|italic|underline))*$"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

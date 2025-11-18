@@ -1,0 +1,49 @@
+<script>
+// Helper functions
+function formatDate(date) {
+  return date.toLocaleDateString();
+}
+
+const helpers = {
+  greet: (name) => `Hello, ${name}!`,
+  calculate: (a, b) => a + b
+};
+</script>
+
+<script type="application/json">
+{
+  "title": "Test Page",
+  "description": "Testing theme variants"
+}
+</script>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.highlight {
+  background-color: yellow;
+  color: black;
+}
+</style>
+
+<h1>{data::title}</h1>
+<p>This is a test of the {::action} placeholder.</p>
+<div class="{::className}">
+  <span>Named placeholder: {::name}</span>
+  <span>Data and action: {data:action::}</span>
+</div>
+
+<script>
+// More helper functions
+function complexHelper(param1, param2) {
+  const result = param1 + param2;
+  return result.toUpperCase();
+}
+
+const anotherHelper = (value) => {
+  return value * 2;
+};
+</script>
