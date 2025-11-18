@@ -1,4 +1,6 @@
-# Morph Syntax Highlighting
+<img src="header.png" alt="Morph Syntax Highlighting" >
+
+# Morph Syntax Highlighting for VS Code
 
 A VS Code extension that provides syntax highlighting for .morph files used by @peter.naydenov/vite-plugin-morph.
 
