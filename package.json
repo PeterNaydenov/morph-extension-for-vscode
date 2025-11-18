@@ -2,7 +2,7 @@
   "name": "morph-template-syntax-highlighting",
   "displayName": "Morph Template Syntax Highlighting",
   "description": "Syntax highlighting for .morph template files with placeholder detection and section highlighting",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "peternaydenov",
   "engines": {
     "vscode": "^1.106.1"
