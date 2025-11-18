@@ -1,6 +1,7 @@
 .vscode/**
 .vscode-test/**
-src/**
+src/**/*.ts
+src/test/**
 .gitignore
 .yarnrc
 vsc-extension-quickstart.md
@@ -21,3 +22,6 @@ tests/**
 **/package-lock.json
 **/CHANGELOG.md
 **/README.md
+!src/language-configuration.json
+!src/syntaxes/morph.tmLanguage.json
+!src/themes/morph-theme.json
