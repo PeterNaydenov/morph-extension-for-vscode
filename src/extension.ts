@@ -2,9 +2,9 @@ import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext): void {
   console.log('Morph Syntax Highlighting extension is now active!');
-  
+
   // Check if language is registered
-  vscode.languages.getLanguages().then(languages => {
+  vscode.languages.getLanguages().then((languages) => {
     const morphLanguage = languages.includes('morph');
     console.log('Morph language registered:', morphLanguage);
   });

@@ -1,4 +1,4 @@
-import * as assert from 'assert';
+import * as assert from 'node:assert';
 import * as vscode from 'vscode';
 
 suite('Helper Function Visibility Tests', () => {
@@ -94,7 +94,7 @@ suite('Helper Function Visibility Tests', () => {
         <script>
           const validateEmail = (email) => {
             // eslint-disable-next-line no-useless-escape
-            return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+            return /^[^@s]+@[^@s]+.[^@s]+$/.test(email);
           };
         </script>
       `,

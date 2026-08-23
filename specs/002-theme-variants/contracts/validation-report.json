@@ -22,7 +22,14 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["foreground", "background", "ratio", "passesAA", "passesAAA", "element"],
+        "required": [
+          "foreground",
+          "background",
+          "ratio",
+          "passesAA",
+          "passesAAA",
+          "element"
+        ],
         "properties": {
           "foreground": {
             "type": "string",

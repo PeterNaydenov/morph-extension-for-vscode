@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.6] - 2026-08-23
+
+### Changed
+
+- **Toolchain upgrade**: TypeScript 5.9 → 7.0.2, ESLint 9 → 10, Prettier 3.7 → 3.9, `@vscode/test-electron` 2 → 3, `@vscode/vsce` 3.7 → 3.9
+- **Linter/Formatter**: Migrated from ESLint + Prettier to Biome 2.5 (single tool, faster runs)
+- **Node imports**: Use `node:` protocol for built-in module imports
+- **TypeScript config**: Explicit `types: ["node"]` (TS 7 no longer auto-injects node types)
+- **Test config**: `forEach` callbacks now use block bodies where return values were being ignored
+
+### Removed
+
+- **TypeScript ESLint**: Dropped `@typescript-eslint/*` and `typescript-eslint` packages (incompatible with TypeScript 7)
+- **ESLint config**: `eslint.config.js`, `.prettierrc.json`, `.prettierignore` removed
+- **Lighthouse CI**: Dropped `@lhci/cli` and `.lighthouserc.js` (config pointed at `localhost:3000`, never matched this project)
+
+### Security
+
+- **Dependency overrides**: Pinned `diff ≥8.0.4` and `serialize-javascript ≥7.0.5` via npm overrides to address transitive vulnerabilities
+- **Audit**: `npm audit` reports 0 vulnerabilities
+
+### Added
+
+- **Release workflow**: `.github/workflows/release.yml` triggered on `v*` tag push — runs lint + tests + contrast, packages `.vsix`, publishes to VS Code Marketplace (when `VSCE_PAT` secret is set), and creates a GitHub release with the `.vsix` attached
+
 ## [0.0.5] - 2025-11-18
 
 ### Added

@@ -89,8 +89,8 @@ jspm_packages/
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
-# Extension build artifacts (commented out to allow VSIX distribution)
-# *.vsix
+# Extension build artifacts
+*.vsix
 
 # spec-kit
 .specify
