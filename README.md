@@ -1,6 +1,6 @@
 <img src="header.png" alt="Morph Syntax Highlighting" >
 
-[![Version](https://img.shields.io/badge/version-0.0.5-blue.svg)](https://github.com/PeterNaydenov/morph-extension-for-vscode/releases)
+[![Version](https://img.shields.io/badge/version-0.0.6-blue.svg)](https://github.com/PeterNaydenov/morph-extension-for-vscode/releases)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![VS Code Marketplace](https://img.shields.io/badge/VS%20Code-Marketplace-blue.svg)](https://marketplace.visualstudio.com/items?itemName=peternaydenov.morph-template-syntax-highlighting)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/PeterNaydenov/morph-extension-for-vscode/actions)
@@ -210,7 +210,7 @@ npm test
 
 ## Version
 
-**Current Version**: 0.0.5
+**Current Version**: 0.0.6
 
 ## License
 
