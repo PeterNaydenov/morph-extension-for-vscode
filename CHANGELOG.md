@@ -5,9 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
 
-## [0.0.7] (unreleased)
+
+## [0.0.7] - 2026-08-29
 
 ### Changed
 
@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - **Marketplace README**: Synced the version badge and "Current Version" text with the actually-published version. The 0.0.6 publish on 2026-08-23 went out with README still pointing at 0.0.5, so the Marketplace page was rendering a stale `Current Version: 0.0.5` until the next publish repaints the README.
+
+
 
 ## [0.0.6] - 2026-08-23
 
