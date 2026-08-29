@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 
+## [Unreleased]
+
+### Fixed
+
+- **CI test build**: Moved `test/` sources into `src/test/` so the existing `tsconfig.json` (`include: ["src/**/*"]`, `rootDir: "src"`) actually compiles them. Previously the test runner was a stale artifact from Nov 2025 that just happened to exist on developer machines; CI's clean clone would fail at `npm test` with `Cannot find module '.../out/test/runTest.js'`. The `Release` GitHub Actions workflow has been failing on this since 0.0.6 — masked because the Marketplace publish runs locally, not via CI.
+- **Test runner import**: `src/test/suite/index.ts` was using `import * as Mocha from 'mocha'` which is no longer constructable under `@types/mocha@10.0.10`. Switched to `import Mocha = require('mocha')` (CommonJS-style import-equals-require, no `esModuleInterop` flag needed). This was the second half of why CI was red.
+- **Cleanup**: Removed the stale `test/suite/*.js` and `test/suite/*.js.map` files from the repo (these were committed compiled artifacts that should never have been tracked — `out/` is already in `.gitignore`).
+
 ## [0.0.7] - 2026-08-29
 
 ### Changed
