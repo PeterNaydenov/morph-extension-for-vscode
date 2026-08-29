@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.7] (unreleased)
+
+### Changed
+
+- **Dev dependencies**: Bumped `@biomejs/biome` 2.5.10 → 2.5.11, `@types/node` 26.2.0 → 26.4.0, `mocha` 11.7.5 → 11.8.0
+
+### Fixed
+
+- **Marketplace README**: Synced the version badge and "Current Version" text with the actually-published version. The 0.0.6 publish on 2026-08-23 went out with README still pointing at 0.0.5, so the Marketplace page was rendering a stale `Current Version: 0.0.5` until the next publish repaints the README.
+
 ## [0.0.6] - 2026-08-23
 
 ### Changed
